@@ -49,10 +49,20 @@ public class App
         return resultMatrix;
     }
 
+    public static int[][] multiplyMatrixByValue(int[][] mtx, int val) {
+        int[][] res = new int[mtx.length][mtx[0].length];
+        for (int i = 0; i < mtx.length; i++) {
+            for (int j = 0; j < mtx[i].length; j++) {
+                res[i][j] = mtx[i][j] * val;
+            }
+        }
+        return res;
+    }
+
     public static int[][] additionMatrix(int[][] firstMatrix,int[][] secondMatrix){
         if(firstMatrix.length!=secondMatrix.length
             || firstMatrix[0].length!=secondMatrix[1].length){
-            throw new IllegalArgumentException("Size not equal");
+            throw new ArrayIndexOutOfBoundsException("Size not equal");
         }
         int a = firstMatrix.length;
         int b = secondMatrix[0].length;
@@ -66,6 +76,8 @@ public class App
         }
         return resultMatrix;
     }
+
+
 
     public static int[][] subMatrix(int[][] firstMatrix,int[][] secondMatrix){
         if(firstMatrix.length!=secondMatrix.length
@@ -83,6 +95,20 @@ public class App
         for(int i = 0; i < a; i++){
             for (int j = 0; j < b; j++){
                 resultMatrix[i][j] += firstMatrix[i][j] - secondMatrix[i][j];
+            }
+        }
+        return resultMatrix;
+    }
+
+    public static int[][] stringToMatrix(String str) {
+        int[][] resultMatrix;
+        str = str.replaceAll("\\r","");
+        String [] m = str.split("\n");
+        resultMatrix = new int[m.length][m.length];
+        for (int i =0;i<m.length;i++) {
+            String[] n = m[i].split(",");
+            for(int j=0;j<n.length;j++) {
+                resultMatrix[i][j] = Integer.parseInt(n[j]);
             }
         }
         return resultMatrix;
