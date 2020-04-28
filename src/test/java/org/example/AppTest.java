@@ -43,6 +43,13 @@ public class AppTest
     }
 
     @Test
+    public void TestNotEqualSizeSubMatrices(){
+        int[][] matrixA = {{4,5},{3,2},{6,7},{4,7}};
+        int[][] matrixB = {{1,2},{3,4},{5,6}};
+        assertThrows(ArrayIndexOutOfBoundsException.class,()->{App.subMatrix(matrixA,matrixB);});
+    }
+
+    @Test
     public void TestSubtractionMatrices(){
         int[][] matrixFirstExample = {{4,5},{6,7}};
         int[][] matrixSecondExample = {{1,2},{3,4}};

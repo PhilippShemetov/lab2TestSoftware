@@ -82,10 +82,10 @@ public class App
     public static int[][] subMatrix(int[][] firstMatrix,int[][] secondMatrix){
         if(firstMatrix.length!=secondMatrix.length
             || firstMatrix[0].length!=secondMatrix[1].length){
-            throw new IllegalArgumentException("Size not equal");
+            throw new ArrayIndexOutOfBoundsException("Size not equal");
         } else if (firstMatrix.length <= 0 || firstMatrix[0].length <= 0
             || secondMatrix.length <= 0 || secondMatrix[0].length <= 0) {
-            throw new IllegalArgumentException("Size less 0");
+            throw new ArrayIndexOutOfBoundsException("Size less 0");
         }
         int a = firstMatrix.length;
         int b = secondMatrix[0].length;
